@@ -17,7 +17,9 @@ export const getMovieList = async (type: string) => {
 };
 
 export const getMovieDetail = async (id: number) => {
-  const response: ApiResponse<MovideDetail> = await apiRequest(`/movie/${id}`);
+  const response: ApiResponse<MovideDetail> = await apiRequest(
+    `/movie/${id}?append_to_response=credits`
+  );
 
   return response.data;
 };

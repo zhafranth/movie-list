@@ -15,6 +15,34 @@ export interface MovieItem {
   vote_count: number;
 }
 
+export interface CastProperties {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  order: number;
+}
+
+export interface CrewProperties {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  credit_id: string;
+  department: string;
+  job: string;
+}
 export interface MovideDetail {
   adult: boolean;
   backdrop_path: string;
@@ -57,6 +85,10 @@ export interface MovideDetail {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  credits: {
+    cast: CastProperties[];
+    crew: CrewProperties[];
+  };
 }
 
 export interface SearchParams {

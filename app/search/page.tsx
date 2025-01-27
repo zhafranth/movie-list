@@ -1,6 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import React from "react";
 import MovieCard from "./components/MovieCard";
 import { useSearchMovie } from "@/network/hooks";
