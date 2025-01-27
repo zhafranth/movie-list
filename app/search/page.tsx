@@ -7,12 +7,12 @@ import { useSearchMovie } from "@/network/hooks";
 import LoadingSearch from "./components/LoadingSearch";
 import Pagination from "./components/Pagination";
 
-const SearchPage = () => {
-  const searchParams = useSearchParams();
-
-  const title = searchParams.get("title");
-  const page = searchParams.get("page");
-
+const SearchPage = ({
+  searchParams,
+}: {
+  searchParams: { page: number; title: string };
+}) => {
+  const { page, title } = searchParams ?? {};
   const { data, isPending } = useSearchMovie({
     query: title as string,
     page: Number(page || 1),
