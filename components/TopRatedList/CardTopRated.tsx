@@ -3,15 +3,19 @@ import Image from "next/image";
 import React from "react";
 import dayjs from "dayjs";
 import { MovieItem } from "@/network/interface";
+import Link from "next/link";
 
 interface ICardTopRated {
   data: MovieItem;
 }
 
 const CardTopRated: React.FC<ICardTopRated> = ({ data }) => {
-  const { title, backdrop_path, vote_average, release_date } = data ?? {};
+  const { title, backdrop_path, vote_average, release_date, id } = data ?? {};
   return (
-    <div className="w-full h-[160px] flex-shrink-0 rounded-2xl bg-red-50 overflow-hidden relative transition-all hover:scale-105 cursor-pointer">
+    <Link
+      href={`/movie/${id}`}
+      className="w-full h-[160px] flex-shrink-0 rounded-2xl bg-red-50 overflow-hidden relative transition-all hover:scale-105 cursor-pointer"
+    >
       <Image
         src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
         width={2000}
@@ -34,7 +38,7 @@ const CardTopRated: React.FC<ICardTopRated> = ({ data }) => {
           value={(vote_average / 10) * 100}
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

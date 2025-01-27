@@ -1,6 +1,7 @@
 "use client";
 
 import { Input } from "@heroui/react";
+import Link from "next/link";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import { HiSearchCircle } from "react-icons/hi";
@@ -17,7 +18,7 @@ const Navbar = () => {
         radius="full"
         startContent={<CiSearch />}
       />
-      <p>Movie</p>
+      <Link href="/">Movie</Link>
     </div>
   );
 };
