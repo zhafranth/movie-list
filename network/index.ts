@@ -1,7 +1,12 @@
 "use server";
 
 import apiRequest, { ApiResponse } from "@/config/axios";
-import { MovideDetail, MovieItem } from "./interface";
+import {
+  MovideDetail,
+  MovieItem,
+  SearchMovie,
+  SearchParams,
+} from "./interface";
 
 export const getMovieList = async (type: string) => {
   const response: ApiResponse<{ results: MovieItem[] }> = await apiRequest(
@@ -23,4 +28,13 @@ export const getMovieSimilarList = async (id: number) => {
   );
 
   return response.data?.results;
+};
+
+export const getMovieSearch = async (params: SearchParams) => {
+  const response: ApiResponse<SearchMovie> = await apiRequest({
+    url: "/search/movie",
+    params,
+  });
+
+  return response.data;
 };

@@ -58,3 +58,15 @@ export interface MovideDetail {
   vote_average: number;
   vote_count: number;
 }
+
+export interface SearchParams {
+  query: string;
+  page?: number;
+}
+
+export interface SearchMovie {
+  page: number;
+  results: MovieItem[];
+  total_pages: number;
+  total_results: number;
+}
