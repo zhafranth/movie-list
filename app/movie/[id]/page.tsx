@@ -62,7 +62,7 @@ const MovieDetail = () => {
                 size="lg"
                 value={(vote_average / 10) * 100}
                 aria-label="Loading..."
-                color="warning"
+                color={vote_average < 7 ? "warning" : "success"}
                 showValueLabel={true}
                 classNames={{
                   svg: "w-24 h-24",

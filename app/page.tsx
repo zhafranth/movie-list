@@ -1,5 +1,5 @@
 import HomeMovie from "@/components/HomeMovie";
-import PopularList from "@/components/PopularList";
+import MovieList from "@/components/MovieList";
 import TopRatedList from "@/components/TopRatedList";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <div className="flex flex-1 flex-col gap-y-4">
           <HomeMovie />
-          <PopularList />
+          <MovieList />
         </div>
       </div>
     </main>

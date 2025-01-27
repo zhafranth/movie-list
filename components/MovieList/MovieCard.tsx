@@ -2,16 +2,20 @@ import { MovieItem } from "@/network/interface";
 import { CircularProgress } from "@heroui/react";
 import dayjs from "dayjs";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-interface IPopularCard {
+interface IMovieCard {
   data: MovieItem;
 }
 
-const PopularCard: React.FC<IPopularCard> = ({ data }) => {
-  const { title, backdrop_path, vote_average, release_date } = data ?? {};
+const MovieCard: React.FC<IMovieCard> = ({ data }) => {
+  const { title, backdrop_path, vote_average, release_date, id } = data ?? {};
   return (
-    <div className="h-full w-[30%] rounded-2xl bg-red-100 flex-shrink-0 overflow-hidden relative cursor-pointer">
+    <Link
+      href={`/movie/${id}`}
+      className="h-full w-[30%] rounded-2xl bg-red-100 flex-shrink-0 overflow-hidden relative cursor-pointer"
+    >
       <Image
         src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
         width={2000}
@@ -28,14 +32,14 @@ const PopularCard: React.FC<IPopularCard> = ({ data }) => {
         </div>
         <CircularProgress
           aria-label="Loading..."
-          color="warning"
+          color={vote_average < 7 ? "warning" : "success"}
           showValueLabel={true}
           size="md"
           value={(vote_average / 10) * 100}
         />
       </div>
-    </div>
+    </Link>
   );
 };
 
-export default PopularCard;
+export default MovieCard;

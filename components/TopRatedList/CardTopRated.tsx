@@ -32,7 +32,7 @@ const CardTopRated: React.FC<ICardTopRated> = ({ data }) => {
         </div>
         <CircularProgress
           aria-label="Loading..."
-          color="warning"
+          color={vote_average < 7 ? "warning" : "success"}
           showValueLabel={true}
           size="sm"
           value={(vote_average / 10) * 100}
