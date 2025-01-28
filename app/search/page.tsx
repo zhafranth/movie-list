@@ -5,6 +5,7 @@ import MovieCard from "./components/MovieCard";
 import { useSearchMovie } from "@/network/hooks";
 import LoadingSearch from "./components/LoadingSearch";
 import Pagination from "./components/Pagination";
+import Empty from "@/components/EmptyList";
 
 const SearchPage = ({
   searchParams,
@@ -35,6 +36,7 @@ const SearchPage = ({
         </p>
       </div>
       <div className="flex flex-col gap-y-6">
+        {list.length === 0 && !isPending && <Empty />}
         {list.length === 0 && isPending && <LoadingSearch />}
         {list?.map((item, index) => (
           <MovieCard key={index} data={item} />

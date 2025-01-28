@@ -31,6 +31,7 @@ const Pagination: React.FC<IPagination> = ({
         total={total_pages}
         onChange={handleChangePage}
         page={current_page}
+        isDisabled={total_pages === 1}
       />
     </div>
   );
