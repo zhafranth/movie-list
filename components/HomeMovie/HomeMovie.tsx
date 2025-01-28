@@ -36,13 +36,15 @@ const HomeMovie = () => {
         </div>
       </div>
       <div className="absolute bottom-0 left-0 w-full h-full z-0">
-        <Image
-          src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
-          width={2000}
-          height={2000}
-          alt={title as string}
-          className="w-full h-full object-cover"
-        />
+        {backdrop_path && (
+          <Image
+            src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+            width={2000}
+            height={2000}
+            alt={title as string}
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
     </div>
   );
