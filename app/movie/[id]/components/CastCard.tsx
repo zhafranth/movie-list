@@ -1,6 +1,7 @@
 import { CastProperties } from "@/network/interface";
 import Image from "next/image";
 import React from "react";
+import { FaUser } from "react-icons/fa";
 
 interface ICastCard {
   data: CastProperties;
@@ -11,13 +12,19 @@ const CastCard: React.FC<ICastCard> = ({ data }) => {
   return (
     <div className="w-[15%] h-[350px] flex-shrink-0">
       <div className="w-full h-[250px] rounded-xl overflow-hidden scrollbar-hide bg-slate-800">
-        <Image
-          src={`https://image.tmdb.org/t/p/w780${profile_path}`}
-          width={2000}
-          height={2000}
-          alt={name}
-          className="w-full h-full object-cover"
-        />
+        {profile_path ? (
+          <Image
+            src={`https://image.tmdb.org/t/p/w780${profile_path}`}
+            width={2000}
+            height={2000}
+            alt={name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <FaUser size={32} />
+          </div>
+        )}
       </div>
 
       <h4 className="line-clamp-1 font-semibold text-lg mt-2">{name}</h4>

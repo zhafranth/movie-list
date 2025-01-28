@@ -31,7 +31,7 @@ const SearchPage = ({
           Result : <span className="font-semibold italic">{title}</span>
         </h2>
         <p className="text-slate-400">
-          Total <span>{total_results}</span>
+          Total <span>{total_results?.toLocaleString("id-ID")}</span>
         </p>
       </div>
       <div className="flex flex-col gap-y-6">

@@ -37,10 +37,10 @@ const MovieCard: React.FC<IMovieCard> = ({ data }) => {
         <h2 className="text-2xl font-semibold">
           {title}{" "}
           <span className="font-light">
-            ({dayjs(release_date).format("YYYY")})
+            ({release_date ? dayjs(release_date).format("YYYY") : "-"})
           </span>
         </h2>
-        <p>{dayjs(release_date).format("MMM DD, YYYY")}</p>
+        <p>{release_date ? dayjs(release_date).format("MMM DD, YYYY") : "-"}</p>
         <p className="line-clamp-4 text-slate-400 font-light">{overview}</p>
       </div>
       <CircularProgress
